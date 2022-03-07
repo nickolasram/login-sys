@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, redirect
 from functools import wraps
 from second import second
+from database import db
 import pymongo
 
 app = Flask(__name__)
@@ -8,8 +9,8 @@ app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 app.register_blueprint(second, url_prefix="/user")
 
 # Database
-client = pymongo.MongoClient('localhost', 27017)
-db = client.user_login_system
+# client = pymongo.MongoClient('localhost', 27017)
+# db = client.user_login_system
 
 # Decorators
 def login_required(f):
